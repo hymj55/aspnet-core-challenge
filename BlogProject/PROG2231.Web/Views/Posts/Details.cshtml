@@ -1,0 +1,78 @@
+@model PROG2231.Web.Models.Post
+
+@{
+    ViewData["Title"] = "Post Details";
+}
+
+<h2>Post Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Excerpt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Excerpt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PostImage)
+        </dt>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.PostImage))
+            {
+                <img src="@Model.PostImage" alt="Post Image" style="max-width:300px; max-height:200px;" />
+            }
+            else
+            {
+                <span>No image</span>
+            }   
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tag.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.Id">
+        <i class="bi bi-plus-circle"></i>Edit</a>
+    }
+
+    <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-plus-circle"></i>Back to List</a>
+</div>
+
