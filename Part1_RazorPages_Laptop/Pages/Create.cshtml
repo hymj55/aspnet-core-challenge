@@ -1,0 +1,36 @@
+@page
+@model Part1_RazorPages_Laptop.Pages.CreateModel
+@{
+    ViewData["Title"] = "Add a New Laptop";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-page="/Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="form-group mb-3">
+        <label asp-for="NewLaptop.Model" class="form-label"></label>
+        <input asp-for="NewLaptop.Model" class="form-control" />
+        <span asp-validation-for="NewLaptop.Model" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="NewLaptop.Brand" class="form-label"></label>
+        <input asp-for="NewLaptop.Brand" class="form-control" />
+        <span asp-validation-for="NewLaptop.Brand" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="NewLaptop.Year" class="form-label"></label>
+        <input asp-for="NewLaptop.Year" class="form-control" />
+        <span asp-validation-for="NewLaptop.Year" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-info py-2">Add Laptop</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

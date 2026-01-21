@@ -1,0 +1,65 @@
+@model IEnumerable<Midterm_9031031.Models.Clothing>
+@{
+    ViewData["Title"] = "MJ LINE Clothings"; // Page title
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+
+<div class="text-center mb-4">
+    <h1 class="display-6 fw-semibold">@ViewData["Title"]</h1>
+    <a asp-action="Create" asp-controller="Clothings" class="btn btn-dark py-2 mt-3">Add New Clothing</a>
+</div>
+
+<div class="text-center">
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClothingId" class="btn btn-outline-warning btn-table rounded shadow-sm">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ClothingId" class="btn btn-outline-warning btn-table rounded shadow-sm">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClothingId" class="btn btn-outline-warning btn-table rounded shadow-sm">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</body>
+</html>

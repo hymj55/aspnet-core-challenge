@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Laptop Catalogue";
+}
+
+<div class="text-start">
+    <h1 class="display-6 fw-semibold mb-4">@ViewData["Title"]</h1>
+
+    <a asp-page="/Create" class="btn btn-info mb-3 py-2">Add New Laptop</a>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Brand</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var laptop in Model.Laptops)
+            {
+                <tr>
+                    <td>@laptop.Id</td>
+                    <td>@laptop.Model</td>
+                    <td>@laptop.Brand</td>
+                    <td>@laptop.Year</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
